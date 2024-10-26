@@ -1,0 +1,7 @@
+main.py - project launch
+game_functions.py
+fruit.py
+snake.py
+sounds.py
+graphics.py
+settings.py - consts

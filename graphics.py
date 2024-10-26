@@ -1,0 +1,17 @@
+import pygame
+
+APPLE_IMAGE = pygame.image.load(r"Graphics/apple.png").convert_alpha()
+BODY_BL = pygame.image.load(r"Graphics/body_bl.png").convert_alpha()
+BODY_BR = pygame.image.load(r"Graphics/body_br.png").convert_alpha()
+BODY_HORIZONTAL = pygame.image.load(r"Graphics/body_horizontal.png").convert_alpha()
+BODY_TL = pygame.image.load(r"Graphics/body_tl.png").convert_alpha()
+BODY_TR = pygame.image.load(r"Graphics/body_tr.png").convert_alpha()
+BODY_VERTICAL = pygame.image.load(r"Graphics/body_vertical.png").convert_alpha()
+HEAD_DOWN = pygame.image.load(r"Graphics/head_down.png").convert_alpha()
+HEAD_RIGHT = pygame.image.load(r"Graphics/head_right.png").convert_alpha()
+HEAD_LEFT = pygame.image.load(r"Graphics/head_left.png").convert_alpha()
+HEAD_UP = pygame.image.load(r"Graphics/head_up.png").convert_alpha()
+TAIL_DOWN = pygame.image.load(r"Graphics/tail_down.png").convert_alpha()
+TAIL_LEFT = pygame.image.load(r"Graphics/tail_left.png").convert_alpha()
+TAIL_RIGHT = pygame.image.load(r"Graphics/tail_right.png").convert_alpha()
+TAIL_UP = pygame.image.load(r"Graphics/tail_up.png").convert_alpha()
