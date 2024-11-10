@@ -83,3 +83,4 @@ def moves_snake():
             new_block = True
             snake_direction = vk2(0, 0)
             # змейка не должна изменять позицию
+            # to do
