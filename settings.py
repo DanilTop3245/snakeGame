@@ -9,6 +9,7 @@ CLOCK = pygame.time.Clock()
 GRASS_COLOR = (167, 209, 61)
 BACKGROUND_COLOR = (175, 215, 70)
 SCORE_COLOR = (56, 74, 12)
+SCREEN_UPDATE = pygame.USEREVENT
 
 # GAME_FONT default size 25 => class Font
 """https://younglinux.info/pygame/font"""

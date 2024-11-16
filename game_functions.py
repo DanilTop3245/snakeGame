@@ -1,4 +1,4 @@
-import snake, fruit, sounds
+import snake, fruit, sounds, settings
 
 
 def check_collision():
@@ -13,16 +13,34 @@ def check_collision():
 
 
 def game_over():
-    pass
+    snake.reset_snake()
 
 
 def check_fail():
     for block in snake.snake_body[1::]:
         if block == snake.snake_body[0]:
             game_over()
+    if not 0 <= snake.snake_body[0].x < settings.CELL_NUMBER and not 0 <= snake.snake_body[0].y < settings.CELL_NUMBER:
+        game_over()
 
 
 def update_game():
     snake.moves_snake()
     check_collision()
     check_fail()
+
+
+def draw_grass():
+    pass
+
+
+def draw_score():
+    pass
+
+
+def draw_elements():
+    draw_grass()
+    fruit.draw_fruit()
+    snake.draw_snake()
+    draw_score()
+
