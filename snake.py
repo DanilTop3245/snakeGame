@@ -26,7 +26,7 @@ def update_head_graphics():
 def update_tail_graphics():
     global snake_tail_img
     if len(snake_body) > 1:
-        tail_direction = snake_body[1] - snake_body[2]
+        tail_direction = snake_body[-2] - snake_body[-1]
         if tail_direction == vk2(1, 0):
             snake_tail_img = graphics.TAIL_LEFT
         elif tail_direction == vk2(-1, 0):
@@ -61,14 +61,21 @@ def draw_snake():
         elif idx == len(snake_body) - 1:
             settings.SCREEN_SIZE.blit(snake_tail_img, rectangle)
         else:
-            prev_block = snake_body[idx - 1] - block  # tail
-            next_block = snake_body[idx + 1] - block  # head
+            prev_block = snake_body[idx + 1] - block  # tail
+            next_block = snake_body[idx - 1] - block  # head
             if prev_block.x == next_block.x:
                 settings.SCREEN_SIZE.blit(graphics.BODY_VERTICAL, rectangle)
             elif prev_block.y == next_block.y:
                 settings.SCREEN_SIZE.blit(graphics.BODY_HORIZONTAL, rectangle)
             else:
-                pass
+                if (prev_block.x == -1 and next_block.y == -1) or (prev_block.y == -1 and next_block.x == -1):
+                    settings.SCREEN_SIZE.blit(graphics.BODY_TL, rectangle)
+                elif (prev_block.x == -1 and next_block.y == 1) or (prev_block.y == 1 and next_block.x == -1):
+                    settings.SCREEN_SIZE.blit(graphics.BODY_BL, rectangle)
+                elif (prev_block.x == 1 and next_block.y == -1) or (prev_block.y == -1 and next_block.x == 1):
+                    settings.SCREEN_SIZE.blit(graphics.BODY_TR, rectangle)
+                elif (prev_block.x == 1 and next_block.y == 1) or (prev_block.y == 1 and next_block.x == 1):
+                    settings.SCREEN_SIZE.blit(graphics.BODY_BR, rectangle)
 
 
 def moves_snake():
@@ -76,11 +83,10 @@ def moves_snake():
     if snake_direction != vk2(0, 0):
         if new_block:
             snake_body_copy = snake_body.copy()
-            snake_body_copy.insert(-2, snake_body_copy[-2]+snake_direction)
-            snake_body = snake_body_copy
+            snake_body_copy.insert(0, snake_body_copy[0] + snake_direction)
+            snake_body = snake_body_copy.copy()
             new_block = False
         else:
-            new_block = True
-            snake_direction = vk2(0, 0)
-            # змейка не должна изменять позицию
-            # to do
+            snake_body_copy = snake_body[:-1]
+            snake_body_copy.insert(0, snake_body_copy[0]+snake_direction)
+            snake_body = snake_body_copy[:]

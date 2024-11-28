@@ -1,10 +1,12 @@
+import pygame
+
 import snake, fruit, sounds, settings
 
 
 def check_collision():
     if snake.snake_body[0] == fruit.fruit_position:
         fruit.randomize_fruit()
-        snake.new_block()
+        snake.add_block()
         sounds.SOUND.play()
     for block in snake.snake_body[1::]:
         if block == fruit.fruit_position:
@@ -31,7 +33,12 @@ def update_game():
 
 
 def draw_grass():
-    pass
+    for row in range(settings.CELL_NUMBER):
+        for col in range(settings.CELL_NUMBER):
+            if (row + col) % 2 == 0:
+                grass_rect = pygame.Rect(col * settings.CELL_SIZE, row * settings.CELL_SIZE, settings.CELL_SIZE,
+                                         settings.CELL_SIZE)
+                pygame.draw.rect(settings.SCREEN_SIZE, settings.GRASS_COLOR, grass_rect)
 
 
 def draw_score():
@@ -43,4 +50,3 @@ def draw_elements():
     fruit.draw_fruit()
     snake.draw_snake()
     draw_score()
-

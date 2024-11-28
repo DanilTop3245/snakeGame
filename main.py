@@ -18,12 +18,14 @@ def main():
                     if snake.snake_direction.y != 1:
                         snake.snake_direction = vk2(0, -1)
                 elif event.key == pygame.K_s:
-                    pass
+                    if snake.snake_direction.y != -1:
+                        snake.snake_direction = vk2(0, 1)
                 elif event.key == pygame.K_d:
                     if snake.snake_direction.x != -1:
                         snake.snake_direction = vk2(1, 0)
                 elif event.key == pygame.K_a:
-                    pass
+                    if snake.snake_direction.x != 1:
+                        snake.snake_direction = vk2(-1, 0)
         settings.SCREEN_SIZE.fill(settings.BACKGROUND_COLOR)
         game_functions.draw_elements()
         pygame.display.update()
