@@ -1,6 +1,6 @@
 import pygame, random, sys
 from pygame.math import Vector2 as vk2
-import settings, game_functions, fruit, snake
+import settings, game_functions, fruit, snake, menu
 
 
 def main():
@@ -33,4 +33,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    menu.show_menu()
