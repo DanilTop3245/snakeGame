@@ -1,6 +1,5 @@
 import subprocess
-import sys
-import pygame
+import sys, pygame
 import settings
 
 SCREEN_HEIGHT = 800
@@ -15,7 +14,8 @@ QUIT_BUTTON_COLOR = (160, 29, 30)
 
 
 def run_game():
-    subprocess.Popen([sys.executable, "main.py"])
+    subprocess.run([sys.executable, "main.py"])
+
 
 
 def show_menu():
@@ -27,7 +27,6 @@ def show_menu():
         draw_text("Play", settings.GAME_FONT, BLACK, SCREEN, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 25)
         draw_text("Quit", settings.GAME_FONT, BLACK, SCREEN, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 85)
         pygame.display.update()
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
