@@ -1,6 +1,6 @@
 import pygame
 
-import snake, fruit, sounds, settings, graphics, menu
+import snake, fruit, sounds, settings, graphics
 
 
 def check_collision():
